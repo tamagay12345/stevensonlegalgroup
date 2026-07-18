@@ -1,39 +1,46 @@
 STEVENSON LEGAL GROUP LLP WEBSITE
 
-Main homepage:
+MAIN HOMEPAGE
 - index.html
-
-Main homepage files:
 - style.css
 - script.js
 
-Generated subpages:
-- about.html
+UPDATED MAIN PAGES
 - attorneys.html
-- jeanette-stevenson.html
 - practice-areas.html
+- testimonials.html
+- consultation.html
+- contact.html
+
+SHARED FILES FOR THE UPDATED PAGES
+- assets/pages.css
+- assets/pages.js
+
+OTHER WEBSITE PAGES RETAINED
+- about.html
+- jeanette-stevenson.html
 - family-marriage-law.html
 - criminal-defence.html
 - real-estate-property-law.html
 - civil-litigation.html
 - estate-planning.html
-- testimonials.html
-- consultation.html
-- contact.html
 
-Generated shared files:
+LEGACY SHARED FILES RETAINED FOR THE OTHER PAGES
 - assets/subpages.css
 - assets/subpages.js
 
-Page generator:
-- build-pages.mjs
+LEGACY GENERATOR
+- legacy/build-pages.mjs
 
-Homepage backup made by the generator:
-- index.home-backup.html
+The former generator was moved into the legacy folder because running it would
+overwrite the newly supplied Attorneys, Practice Areas, Testimonials,
+Consultation and Contact pages.
 
-To regenerate the subpages after editing build-pages.mjs:
-1. Install Node.js.
-2. Open a terminal in this folder.
-3. Run: node build-pages.mjs
+REQUIRED IMAGES
+Place all required JPG images inside the assets folder using the exact filenames
+listed in assets/README.txt.
 
-Required images must be placed inside the assets folder using the exact filenames listed in assets/README.txt.
+OPENING THE WEBSITE
+Open index.html in a browser, or upload the entire folder to your hosting service.
+Do not upload only the HTML files; the CSS, JavaScript and assets folder are also
+required.

@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Contact Stevenson Legal Group LLP by consultation form, Telegram or email."
+        content="Contact Stevenson Legal Group LLP through Telegram or email and request a legal consultation."
     >
 
     <meta name="theme-color" content="#f4f1eb">
@@ -20,228 +20,119 @@
     </title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
-    <link
-        rel="stylesheet"
-        href="assets/subpages.css"
-    >
-
-    <script
-        src="assets/subpages.js"
-        defer
-    ></script>
+    <link rel="stylesheet" href="assets/pages.css">
+    <script src="assets/pages.js" defer></script>
 </head>
 
-<body data-page="contact">
+<body>
     <a class="skip-link" href="#main-content">
         Skip to main content
     </a>
 
-    
-        <header class="site-header" id="top">
-            <div class="container header-inner">
-                <a
-                    class="brand"
-                    href="index.html#home"
-                    aria-label="Stevenson Legal Group LLP home"
-                >
-                    <span class="brand-mark" aria-hidden="true">SLG</span>
-
-                    <span class="brand-copy">
-                        <span class="brand-name">
-                            Stevenson Legal Group LLP
-                        </span>
-
-                        <span class="brand-type">
-                            Barristers · Ontario, Canada
-                        </span>
-                    </span>
-                </a>
-
-                <button
-                    class="menu-toggle"
-                    type="button"
-                    aria-label="Open navigation"
-                    aria-controls="primary-navigation"
-                    aria-expanded="false"
-                >
-                    <span
-                        class="menu-toggle-lines"
-                        aria-hidden="true"
-                    ></span>
-                </button>
-
-                <nav
-                    class="primary-nav"
-                    id="primary-navigation"
-                    aria-label="Primary navigation"
-                >
-                    <a
-                        class="nav-link"
-                        href="index.html#home"
-                    >
-                        Home
-                    </a>
-
-                    <a
-                        class="nav-link"
-                        href="about.html"
-                        
-                    >
-                        About the Firm
-                    </a>
-
-                    <details
-                        class="nav-dropdown"
-                    >
-                        <summary>Attorneys</summary>
-
-                        <div class="dropdown-menu">
-                            <a href="attorneys.html">
-                                Attorneys Overview
-                            </a>
-
-                            <a href="jeanette-stevenson.html">
-                                Barrister Jeanette Stevenson
-                            </a>
-                        </div>
-                    </details>
-
-                    <details
-                        class="nav-dropdown"
-                    >
-                        <summary>Areas of Practice</summary>
-
-                        <div class="dropdown-menu dropdown-menu--wide">
-                            <a href="practice-areas.html">
-                                All Practice Areas
-                            </a>
-
-                            
-                <a href="family-marriage-law.html">
-                    Family &amp; Marriage Law
-                </a>
-            
-                <a href="criminal-defence.html">
-                    Criminal Defence
-                </a>
-            
-                <a href="real-estate-property-law.html">
-                    Real Estate &amp; Property Law
-                </a>
-            
-                <a href="civil-litigation.html">
-                    Civil Litigation
-                </a>
-            
-                <a href="estate-planning.html">
-                    Estate Planning
-                </a>
-            
-                        </div>
-                    </details>
-
-                    <a
-                        class="nav-link"
-                        href="testimonials.html"
-                        
-                    >
-                        Testimonials
-                    </a>
-
-                    <a
-                        class="nav-link is-active"
-                        href="contact.html"
-                        aria-current="page"
-                    >
-                        Contact
-                    </a>
-
-                    <a
-                        class="button header-cta"
-                        href="consultation.html"
-                    >
-                        Book a Consultation
-                    </a>
-                </nav>
-            </div>
-        </header>
-    
+    <site-header active="contact"></site-header>
 
     <main id="main-content">
         <section
-            class="subhero"
-            style="--hero-image: url('assets/modern-courthouse.jpg');"
+            class="page-hero page-hero--contact"
+            aria-labelledby="page-title"
         >
-            <div class="subhero-overlay" aria-hidden="true"></div>
-
-            <div class="container subhero-inner">
-                <div class="subhero-content">
-                    <p class="hero-eyebrow">
-                        Contact Stevenson Legal Group LLP
+            <div class="container page-hero__inner">
+                <div class="page-hero__content">
+                    <p class="page-hero__kicker">
+                        Contact the Firm
                     </p>
 
-                    <h1>Professional legal guidance begins with the right conversation.</h1>
+                    <h1 id="page-title">
+                        A direct first step toward legal clarity.
+                    </h1>
 
-                    <p class="subhero-intro">
-                        Contact the firm by consultation form, Telegram or email for an initial review of your legal inquiry.
+                    <p class="page-hero__description">
+                        Contact Stevenson Legal Group LLP through the official
+                        Telegram link, Telegram number or either of the firm’s
+                        listed email addresses.
                     </p>
+
+                    <div class="page-hero__actions">
+                        <a
+                            class="button"
+                            href="consultation.html"
+                        >
+                            Book a Consultation
+                        </a>
+
+                        <a
+                            class="button button--outline"
+                            href="#contact-options"
+                        >
+                            View Contact Options
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        
-        <section class="section section--light">
-            <div class="container contact-page-layout">
-                <article class="prose reveal">
-                    <p class="eyebrow">Contact the Firm</p>
+        <section
+            class="section section--light"
+            id="contact-options"
+        >
+            <div class="container">
+                <p class="eyebrow">
+                    Contact Options
+                </p>
 
-                    <h2 class="section-title">
-                        Choose the contact method that is most convenient for you.
-                    </h2>
+                <h2 class="section-title">
+                    Choose the method that is most convenient for you.
+                </h2>
 
-                    <p class="lead">
-                        New legal inquiries may be submitted through the
-                        consultation form, Telegram or email.
-                    </p>
+                <p class="section-intro">
+                    Do not send confidential documents or sensitive evidence
+                    until the firm confirms that it can receive and consider
+                    your information.
+                </p>
 
-                    <p>
-                        Provide only a short, non-confidential description until
-                        the firm confirms that it can consider your matter. Avoid
-                        sending court evidence, identity documents, banking
-                        details, passwords or sensitive attachments.
-                    </p>
-
-                    <p>
-                        The firm’s head office is located in Ontario, Canada.
-                        Consultations are available by appointment.
-                    </p>
-
-                    <a class="button" href="consultation.html">
-                        Book a Consultation
-                    </a>
-                </article>
-
-                <div class="contact-methods">
-                    <article class="contact-method-card reveal">
-                        <span class="contact-method-label">
+                <div class="contact-grid">
+                    <article class="contact-card reveal">
+                        <span class="contact-card__label">
                             Telegram
                         </span>
 
-                        <h3>Official Telegram contact</h3>
+                        <h2>
+                            <span class="official-badge">
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    aria-hidden="true"
+                                >
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="10"
+                                        fill="#792d3c"
+                                    />
+
+                                    <path
+                                        d="m7.5 12.1 2.7 2.7 6.4-6.4"
+                                        stroke="white"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+
+                                Official Telegram
+                            </span>
+                        </h2>
 
                         <p>
-                            Use the firm’s Telegram link to begin a new inquiry.
+                            Open the firm-provided Telegram contact link
+                            directly in the Telegram application or browser.
                         </p>
 
                         <a
@@ -254,57 +145,76 @@
                         </a>
                     </article>
 
-                    <article class="contact-method-card reveal">
-                        <span class="contact-method-label">
-                            Telegram number
+                    <article class="contact-card reveal">
+                        <span class="contact-card__label">
+                            Telegram Number
                         </span>
 
-                        <h3>+1 863 251 4333</h3>
+                        <h2>
+                            +1 863 251 4333
+                        </h2>
 
                         <p>
-                            Copy the number for use in Telegram or your contacts.
+                            Copy the listed Telegram number and add it within
+                            the Telegram application.
                         </p>
 
                         <button
                             class="button button--dark"
                             type="button"
-                            data-copy-value="+1 863 251 4333"
+                            data-copy="+1 863 251 4333"
                         >
-                            Copy Number
+                            Copy Telegram Number
                         </button>
                     </article>
 
-                    <article class="contact-method-card reveal">
-                        <span class="contact-method-label">
-                            Primary email
+                    <article class="contact-card reveal">
+                        <span class="contact-card__label">
+                            Primary Email
                         </span>
 
-                        <h3 class="contact-email">
-                            barristerjeanettestevenson@gmail.com
-                        </h3>
+                        <h2>
+                            General legal inquiries
+                        </h2>
+
+                        <p>
+                            <a
+                                href="mailto:barristerjeanettestevenson@gmail.com"
+                            >
+                                barristerjeanettestevenson@gmail.com
+                            </a>
+                        </p>
 
                         <a
                             class="button"
                             href="mailto:barristerjeanettestevenson@gmail.com"
                         >
-                            Send Email
+                            Send an Email
                         </a>
                     </article>
 
-                    <article class="contact-method-card reveal">
-                        <span class="contact-method-label">
-                            Alternate email
+                    <article class="contact-card reveal">
+                        <span class="contact-card__label">
+                            Alternate Email
                         </span>
 
-                        <h3 class="contact-email">
-                            barristerjeanettestevensonlw@gmail.com
-                        </h3>
+                        <h2>
+                            Additional contact address
+                        </h2>
+
+                        <p>
+                            <a
+                                href="mailto:barristerjeanettestevensonlw@gmail.com"
+                            >
+                                barristerjeanettestevensonlw@gmail.com
+                            </a>
+                        </p>
 
                         <a
                             class="button"
                             href="mailto:barristerjeanettestevensonlw@gmail.com"
                         >
-                            Send Email
+                            Send an Email
                         </a>
                     </article>
                 </div>
@@ -313,145 +223,165 @@
 
         <section class="section section--white">
             <div class="container">
-                <div class="section-heading reveal">
-                    <p class="eyebrow">What Happens Next</p>
+                <div class="office-panel reveal">
+                    <div
+                        class="office-panel__image"
+                        role="img"
+                        aria-label="Marble staircase in a courthouse building"
+                    ></div>
 
-                    <h2 class="section-title">
-                        A clear process for new legal inquiries.
-                    </h2>
+                    <div class="office-panel__content">
+                        <p class="eyebrow">
+                            Head Office
+                        </p>
+
+                        <h2>
+                            Stevenson Legal Group LLP
+                        </h2>
+
+                        <p>
+                            The firm’s head office is located in Ontario,
+                            Canada. Consultations are arranged by appointment.
+                            International and cross-border inquiries may be
+                            reviewed subject to the nature of the matter and
+                            applicable licensing requirements.
+                        </p>
+
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <span>Location</span>
+                                <span>Ontario, Canada</span>
+                            </div>
+
+                            <div class="contact-detail">
+                                <span>Attorney</span>
+
+                                <span>
+                                    Barrister Jeanette Stevenson
+                                </span>
+                            </div>
+
+                            <div class="contact-detail">
+                                <span>Consultations</span>
+                                <span>By appointment</span>
+                            </div>
+
+                            <div class="contact-detail">
+                                <span>Practice</span>
+
+                                <span>
+                                    Family, criminal, property, civil and
+                                    estate matters
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                
-        <div class="feature-grid">
-            
-                        <article class="feature-card reveal">
-                            <span class="feature-number">
-                                01
-                            </span>
-
-                            <h3>Inquiry review</h3>
-
-                            <p>The firm reviews the general nature of the request and determines whether further information is required.</p>
-                        </article>
-                    
-                        <article class="feature-card reveal">
-                            <span class="feature-number">
-                                02
-                            </span>
-
-                            <h3>Preliminary checks</h3>
-
-                            <p>Availability, jurisdiction, professional conflicts and the type of legal service required are considered.</p>
-                        </article>
-                    
-                        <article class="feature-card reveal">
-                            <span class="feature-number">
-                                03
-                            </span>
-
-                            <h3>Consultation scheduling</h3>
-
-                            <p>Where appropriate, the firm contacts the prospective client to arrange a consultation.</p>
-                        </article>
-                    
-                        <article class="feature-card reveal">
-                            <span class="feature-number">
-                                04
-                            </span>
-
-                            <h3>Retainer decision</h3>
-
-                            <p>Representation begins only after the firm accepts the matter and the required written retainer is completed.</p>
-                        </article>
-                    
-        </div>
-    
             </div>
         </section>
-    
-    </main>
 
-    
-        <footer class="site-footer">
+        <section class="section section--light">
             <div class="container">
-                <div class="footer-top">
-                    <div>
-                        <div class="footer-brand">
-                            <span
-                                class="brand-mark"
-                                aria-hidden="true"
-                            >
-                                SLG
-                            </span>
+                <p class="eyebrow">
+                    Contact Guidance
+                </p>
 
-                            <strong>
-                                Stevenson Legal Group LLP
-                            </strong>
-                        </div>
+                <h2 class="section-title">
+                    Information to include in a new legal inquiry.
+                </h2>
 
-                        <p class="footer-description">
-                            Strategic, client-focused legal representation in
-                            family law, criminal defence, real estate, civil
-                            litigation and estate planning.
+                <div class="feature-grid">
+                    <article class="feature-card reveal">
+                        <span class="feature-card__number">01</span>
+
+                        <h3>Your contact details</h3>
+
+                        <p>
+                            Include your full name, preferred contact method
+                            and the location connected to the legal matter.
                         </p>
-                    </div>
+                    </article>
 
-                    <nav
-                        class="footer-links"
-                        aria-label="Footer navigation"
+                    <article class="feature-card reveal">
+                        <span class="feature-card__number">02</span>
+
+                        <h3>The practice area</h3>
+
+                        <p>
+                            Identify whether the inquiry concerns family law,
+                            criminal defence, property, litigation or estate
+                            planning.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <span class="feature-card__number">03</span>
+
+                        <h3>Important deadlines</h3>
+
+                        <p>
+                            Mention known court dates, closing dates,
+                            limitation concerns or other urgent time
+                            requirements.
+                        </p>
+                    </article>
+
+                    <article class="feature-card reveal">
+                        <span class="feature-card__number">04</span>
+
+                        <h3>A brief summary</h3>
+
+                        <p>
+                            Provide a concise, non-confidential explanation
+                            without attaching sensitive documents or evidence.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section page-cta">
+            <div class="container page-cta__layout">
+                <div>
+                    <h2>
+                        Use the consultation form for a structured new-client
+                        inquiry.
+                    </h2>
+
+                    <p>
+                        The form collects the basic information needed to
+                        identify the practice area, location and potential
+                        urgency of the matter.
+                    </p>
+                </div>
+
+                <div class="page-cta__actions">
+                    <a
+                        class="button button--light"
+                        href="consultation.html"
                     >
-                        <a href="about.html">About the Firm</a>
-                        <a href="attorneys.html">Attorneys</a>
-                        <a href="jeanette-stevenson.html">
-                            Barrister Jeanette Stevenson
-                        </a>
-                        <a href="practice-areas.html">Areas of Practice</a>
-                        <a href="testimonials.html">Testimonials</a>
-                        <a href="consultation.html">
-                            Book a Consultation
-                        </a>
-                        <a href="contact.html">Contact</a>
-                    </nav>
-                </div>
+                        Book a Consultation
+                    </a>
 
-                <div class="footer-disclaimer">
-                    <strong>Legal notice:</strong>
-                    The information on this website is general information and
-                    is not legal advice. Viewing this website or sending a
-                    consultation request does not create a lawyer-client
-                    relationship. A lawyer-client relationship begins only
-                    after the firm confirms acceptance of the matter and the
-                    parties enter into an appropriate written retainer. Do not
-                    send confidential information until the firm confirms that
-                    it can receive it. Past results, where accurately reported,
-                    do not guarantee a similar result. Legal services outside
-                    Ontario may require collaboration with counsel licensed in
-                    the relevant jurisdiction. All professional,
-                    certification, licensing, testimonial and
-                    representative-matter claims must be verified before
-                    publication.
-                </div>
-
-                <div class="footer-bottom">
-                    <span>
-                        © <span data-current-year></span>
-                        Stevenson Legal Group LLP. All rights reserved.
-                    </span>
-
-                    <a class="back-to-top" href="#top">
-                        Back to top ↑
+                    <a
+                        class="button button--outline"
+                        href="practice-areas.html"
+                    >
+                        Review Practice Areas
                     </a>
                 </div>
             </div>
-        </footer>
+        </section>
+    </main>
 
-        <div
-            class="toast"
-            id="toast"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-        ></div>
-    
+    <site-footer></site-footer>
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
 </body>
 </html>
