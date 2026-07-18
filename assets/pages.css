@@ -1,0 +1,2375 @@
+:root {
+    --paper: #f4f1eb;
+    --paper-light: #fbfaf7;
+    --white: #ffffff;
+    --ink: #1e1f1d;
+    --charcoal: #292a27;
+    --charcoal-soft: #383935;
+    --muted: #66675f;
+    --stone: #d8d2c8;
+    --stone-light: #e9e4dc;
+    --burgundy: #792d3c;
+    --burgundy-dark: #58202c;
+    --focus: #b34b5f;
+    --header-height: 82px;
+    --container: 1180px;
+    --serif: "Libre Baskerville", Georgia, serif;
+    --sans: "Source Sans 3", Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-height) + 20px);
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+summary,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: var(--burgundy);
+    color: var(--white);
+}
+
+:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 5000;
+    padding: 10px 16px;
+    background: var(--white);
+    color: var(--ink);
+    border: 2px solid var(--burgundy);
+    transform: translateY(-160%);
+    transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.container {
+    width: min(calc(100% - 40px), var(--container));
+    margin-inline: auto;
+}
+
+.section {
+    padding: 105px 0;
+}
+
+.section--light {
+    background: var(--paper-light);
+}
+
+.section--white {
+    background: var(--white);
+}
+
+.section--paper {
+    background: var(--paper);
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 18px;
+    color: var(--burgundy);
+    font-size: 0.79rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    width: 36px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.section-title {
+    max-width: 850px;
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(2.15rem, 4vw, 4.1rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.12;
+}
+
+.section-intro {
+    max-width: 750px;
+    margin: 24px 0 0;
+    color: var(--muted);
+    font-size: 1.08rem;
+}
+
+.section-heading {
+    margin-bottom: 55px;
+}
+
+.button {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: var(--burgundy);
+    color: var(--white);
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background-color 180ms ease,
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.button:hover {
+    background: var(--burgundy-dark);
+    transform: translateY(-2px);
+}
+
+.button--light {
+    background: var(--white);
+    color: var(--burgundy-dark);
+}
+
+.button--light:hover {
+    background: var(--paper);
+    color: var(--burgundy-dark);
+}
+
+.button--dark {
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.button--dark:hover {
+    background: #111210;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--burgundy);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.text-link::after {
+    content: "→";
+    transition: transform 180ms ease;
+}
+
+.text-link:hover::after {
+    transform: translateX(4px);
+}
+
+/* Header */
+
+.site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 1000;
+    height: var(--header-height);
+    background: rgba(250, 248, 243, 0.97);
+    border-bottom: 1px solid rgba(30, 31, 29, 0.12);
+}
+
+.header-inner {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: inline-flex;
+    min-width: 250px;
+    align-items: center;
+    gap: 13px;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.brand-mark {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid var(--burgundy);
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+}
+
+.brand-copy {
+    display: grid;
+    line-height: 1.1;
+}
+
+.brand-name {
+    font-family: var(--serif);
+    font-size: 0.96rem;
+    font-weight: 700;
+}
+
+.brand-type {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.primary-nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-link,
+.nav-dropdown > summary {
+    position: relative;
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 9px;
+    border: 0;
+    color: var(--charcoal);
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-decoration: none;
+    white-space: nowrap;
+    list-style: none;
+}
+
+.nav-link::after,
+.nav-dropdown.is-active > summary::before {
+    position: absolute;
+    right: 9px;
+    bottom: 4px;
+    left: 9px;
+    height: 2px;
+    background: var(--burgundy);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 180ms ease;
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after,
+.nav-dropdown.is-active > summary::before {
+    transform: scaleX(1);
+}
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown > summary {
+    cursor: pointer;
+}
+
+.nav-dropdown > summary::-webkit-details-marker {
+    display: none;
+}
+
+.nav-dropdown > summary::after {
+    width: 7px;
+    height: 7px;
+    margin-top: -4px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    content: "";
+    transform: rotate(45deg);
+    transition: transform 180ms ease;
+}
+
+.nav-dropdown[open] > summary::after {
+    margin-top: 4px;
+    transform: rotate(225deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 290px;
+    padding: 10px;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    box-shadow: 0 20px 45px rgba(25, 25, 23, 0.14);
+}
+
+.dropdown-menu--wide {
+    width: 320px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 13px;
+    border-bottom: 1px solid var(--stone-light);
+    color: var(--ink);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+    text-decoration: none;
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: 0;
+}
+
+.dropdown-menu a:hover {
+    background: var(--paper);
+    color: var(--burgundy);
+}
+
+.header-cta {
+    min-height: 44px;
+    padding: 11px 15px;
+    font-size: 0.78rem;
+}
+
+.menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--stone);
+    background: transparent;
+    color: var(--ink);
+}
+
+.menu-toggle-lines,
+.menu-toggle-lines::before,
+.menu-toggle-lines::after {
+    display: block;
+    width: 21px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+    transition: transform 180ms ease;
+}
+
+.menu-toggle-lines {
+    position: relative;
+}
+
+.menu-toggle-lines::before {
+    position: absolute;
+    top: -7px;
+}
+
+.menu-toggle-lines::after {
+    position: absolute;
+    top: 7px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-lines {
+    background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-lines::before {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-lines::after {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Interior hero */
+
+.subhero {
+    position: relative;
+    min-height: 610px;
+    margin-top: var(--header-height);
+    overflow: hidden;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.subhero::before {
+    position: absolute;
+    inset: 0;
+    background-image: var(--hero-image);
+    background-position: center;
+    background-size: cover;
+    content: "";
+}
+
+.subhero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(23, 24, 22, 0.68);
+}
+
+.subhero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: 610px;
+    align-items: flex-end;
+    padding-top: 120px;
+    padding-bottom: 85px;
+}
+
+.subhero-content {
+    max-width: 910px;
+}
+
+.hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.hero-eyebrow::before {
+    width: 40px;
+    height: 2px;
+    background: var(--white);
+    content: "";
+}
+
+.subhero h1 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(2.9rem, 6.5vw, 6rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 1.04;
+}
+
+.subhero-intro {
+    max-width: 760px;
+    margin: 28px 0 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: clamp(1.03rem, 2vw, 1.25rem);
+}
+
+/* Main content */
+
+.content-split,
+.profile-layout,
+.attorney-overview,
+.practice-detail-layout,
+.consultation-page-layout,
+.contact-page-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: start;
+    gap: clamp(50px, 8vw, 100px);
+}
+
+.content-image img {
+    width: 100%;
+    min-height: 650px;
+    object-fit: cover;
+}
+
+.prose p {
+    color: var(--muted);
+}
+
+.prose .lead {
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    line-height: 1.72;
+}
+
+.prose > .button {
+    margin-top: 18px;
+}
+
+.profile-role {
+    color: var(--burgundy) !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.feature-card {
+    min-height: 280px;
+    padding: 32px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.feature-number {
+    display: block;
+    margin-bottom: 50px;
+    color: var(--burgundy);
+    font-family: var(--serif);
+}
+
+.feature-card h3 {
+    margin: 0 0 13px;
+    font-family: var(--serif);
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.93rem;
+}
+
+.two-column-copy {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.7fr);
+    gap: clamp(50px, 9vw, 120px);
+    align-items: start;
+}
+
+.statement-panel {
+    padding: 38px;
+    background: var(--burgundy);
+    color: var(--white);
+}
+
+.statement-panel--dark {
+    background: var(--charcoal);
+}
+
+.statement-label,
+.contact-method-label {
+    display: block;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.statement-panel h3 {
+    margin: 0 0 18px;
+    font-family: var(--serif);
+    font-size: 1.65rem;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.statement-panel p {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.statement-panel .button {
+    margin-top: 14px;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.audience-card {
+    min-height: 235px;
+    padding: 32px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+}
+
+.audience-card h3 {
+    margin: 0 0 15px;
+    font-family: var(--serif);
+    font-size: 1.3rem;
+}
+
+.audience-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.attorney-overview-image img {
+    width: 100%;
+    min-height: 680px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.profile-gallery {
+    position: relative;
+    min-height: 760px;
+}
+
+.profile-primary {
+    width: 88%;
+    height: 680px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.profile-secondary {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 46%;
+    height: 310px;
+    border: 10px solid var(--paper-light);
+    object-fit: cover;
+    object-position: center top;
+}
+
+/* Practices */
+
+.practice-overview-grid {
+    display: grid;
+    gap: 22px;
+}
+
+.practice-overview-card {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    min-height: 310px;
+    border: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.practice-card-image {
+    overflow: hidden;
+}
+
+.practice-card-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 310px;
+    object-fit: cover;
+    transition: transform 300ms ease;
+}
+
+.practice-card-image:hover img {
+    transform: scale(1.025);
+}
+
+.practice-card-content {
+    align-self: center;
+    padding: 40px 48px;
+}
+
+.practice-card-number {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--burgundy);
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.practice-card-content h2 {
+    margin: 0 0 14px;
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3vw, 2.55rem);
+    font-weight: 400;
+}
+
+.practice-card-content h2 a {
+    text-decoration: none;
+}
+
+.practice-card-content h2 a:hover {
+    color: var(--burgundy);
+}
+
+.practice-card-content p {
+    max-width: 690px;
+    margin: 0 0 22px;
+    color: var(--muted);
+}
+
+.practice-detail-layout {
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.65fr);
+}
+
+.service-list-panel {
+    padding: 35px;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.service-list-panel .statement-label {
+    margin-bottom: 25px;
+}
+
+.service-list-panel ul {
+    display: grid;
+    gap: 11px;
+    margin: 0 0 30px;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+/* FAQ */
+
+.faq-list {
+    border-top: 1px solid var(--stone);
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--stone);
+}
+
+.faq-item summary {
+    position: relative;
+    padding: 28px 55px 28px 0;
+    cursor: pointer;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::before,
+.faq-item summary::after {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    width: 18px;
+    height: 2px;
+    background: var(--burgundy);
+    content: "";
+}
+
+.faq-item summary::after {
+    transform: rotate(90deg);
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(0);
+}
+
+.faq-answer {
+    max-width: 850px;
+    padding: 0 55px 28px 0;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* Testimonials */
+
+.notice-panel {
+    max-width: 900px;
+    margin-bottom: 45px;
+    padding: 25px 28px;
+    border-left: 4px solid var(--burgundy);
+    background: var(--white);
+}
+
+.notice-panel strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--serif);
+    font-size: 1.15rem;
+}
+
+.notice-panel p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.testimonial-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.testimonial-card {
+    display: flex;
+    min-height: 340px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.testimonial-card:nth-child(even) {
+    background: var(--paper);
+}
+
+.quote-mark {
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 4rem;
+    line-height: 0.8;
+}
+
+.testimonial-card blockquote {
+    margin: 26px 0 35px;
+    color: var(--charcoal-soft);
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+.testimonial-card footer strong {
+    display: block;
+}
+
+.testimonial-card footer span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+/* Consultation */
+
+.consultation-page-layout {
+    grid-template-columns: minmax(320px, 0.7fr) minmax(0, 1.15fr);
+}
+
+.consultation-information {
+    padding-right: 20px;
+}
+
+.consultation-information > p {
+    color: var(--muted);
+}
+
+.check-list {
+    display: grid;
+    gap: 15px;
+    margin: 33px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.check-list li {
+    display: grid;
+    grid-template-columns: 9px 1fr;
+    gap: 13px;
+    color: var(--charcoal-soft);
+}
+
+.check-list li::before {
+    width: 8px;
+    height: 8px;
+    margin-top: 9px;
+    background: var(--burgundy);
+    content: "";
+}
+
+.contact-mini-panel {
+    padding: 25px;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.contact-mini-panel strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: var(--serif);
+}
+
+.contact-mini-panel a {
+    color: rgba(255, 255, 255, 0.82);
+    text-underline-offset: 4px;
+}
+
+.consultation-form-card {
+    padding: 55px;
+    background: var(--white);
+    border: 1px solid var(--stone);
+}
+
+.consultation-form-card > h2 {
+    margin: 0 0 8px;
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.consultation-form-card > p {
+    margin: 0 0 30px;
+    color: var(--muted);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 21px;
+}
+
+.form-field {
+    display: grid;
+    gap: 7px;
+}
+
+.form-field--full {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    color: var(--charcoal);
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.required {
+    color: var(--burgundy);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px 14px;
+    border: 1px solid #bdb8ae;
+    border-radius: 0;
+    background: var(--white);
+    color: var(--ink);
+}
+
+.form-field textarea {
+    min-height: 165px;
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--burgundy);
+    outline: 2px solid rgba(121, 45, 60, 0.16);
+}
+
+.checkbox-field {
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 11px;
+    align-items: start;
+}
+
+.checkbox-field input {
+    width: 18px;
+    height: 18px;
+    margin: 4px 0 0;
+    accent-color: var(--burgundy);
+}
+
+.checkbox-field label {
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.form-status {
+    min-height: 24px;
+    color: var(--burgundy);
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.form-privacy {
+    margin: 18px 0 0 !important;
+    color: var(--muted);
+    font-size: 0.77rem;
+}
+
+/* Contact */
+
+.contact-page-layout {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.contact-method-card {
+    min-height: 285px;
+    padding: 31px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.contact-method-card:nth-child(2),
+.contact-method-card:nth-child(3) {
+    background: var(--paper);
+}
+
+.contact-method-label {
+    color: var(--burgundy);
+}
+
+.contact-method-card h3 {
+    margin: 0 0 13px;
+    font-family: var(--serif);
+    font-size: 1.27rem;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+}
+
+.contact-method-card p {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+.contact-email {
+    font-size: 1rem !important;
+}
+
+/* CTA */
+
+.page-cta {
+    padding: 65px 0;
+    background: var(--burgundy);
+    color: var(--white);
+}
+
+.page-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.page-cta-label {
+    margin: 0 0 9px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.73rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.page-cta h2 {
+    max-width: 760px;
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(1.85rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.page-cta p {
+    max-width: 720px;
+    margin: 13px 0 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Footer */
+
+.site-footer {
+    padding: 58px 0 28px;
+    background: #1a1b19;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    padding-bottom: 45px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--white);
+}
+
+.footer-brand .brand-mark {
+    border-color: rgba(255, 255, 255, 0.55);
+    color: var(--white);
+}
+
+.footer-brand strong {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+}
+
+.footer-description {
+    max-width: 600px;
+    margin: 21px 0 0;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 24px;
+    align-content: start;
+}
+
+.footer-links a {
+    padding: 7px 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.88rem;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.footer-disclaimer {
+    padding: 26px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    font-size: 0.76rem;
+    line-height: 1.7;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding-top: 27px;
+    font-size: 0.76rem;
+}
+
+.back-to-top {
+    color: var(--white);
+    text-decoration: none;
+}
+
+/* Toast and reveal */
+
+.toast {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 3000;
+    max-width: min(390px, calc(100% - 44px));
+    padding: 14px 18px;
+    background: var(--charcoal);
+    color: var(--white);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    font-size: 0.88rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.toast.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+    :root {
+        --header-height: 74px;
+    }
+
+    .brand {
+        min-width: 225px;
+    }
+
+    .brand-name {
+        font-size: 0.88rem;
+    }
+
+    .primary-nav {
+        position: fixed;
+        top: var(--header-height);
+        right: 0;
+        bottom: 0;
+        width: min(390px, 100%);
+        display: block;
+        padding: 24px;
+        overflow-y: auto;
+        background: var(--paper-light);
+        border-left: 1px solid var(--stone);
+        transform: translateX(105%);
+        transition: transform 220ms ease;
+    }
+
+    .primary-nav.is-open {
+        transform: translateX(0);
+    }
+
+    .nav-link,
+    .nav-dropdown > summary {
+        width: 100%;
+        min-height: 52px;
+        justify-content: space-between;
+        padding: 14px 4px;
+        border-bottom: 1px solid var(--stone);
+        font-size: 0.96rem;
+    }
+
+    .nav-link::after,
+    .nav-dropdown.is-active > summary::before {
+        display: none;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu,
+    .dropdown-menu--wide {
+        position: static;
+        width: 100%;
+        padding: 8px 0 16px 14px;
+        border: 0;
+        border-bottom: 1px solid var(--stone);
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .dropdown-menu a {
+        padding: 11px 8px;
+    }
+
+    .header-cta {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .menu-toggle {
+        display: grid;
+    }
+
+    .content-split,
+    .profile-layout,
+    .attorney-overview,
+    .practice-detail-layout,
+    .consultation-page-layout,
+    .contact-page-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .content-image img,
+    .attorney-overview-image img {
+        min-height: 560px;
+    }
+
+    .feature-grid,
+    .testimonial-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .practice-overview-card {
+        grid-template-columns: 290px minmax(0, 1fr);
+    }
+
+    .two-column-copy {
+        grid-template-columns: 1fr;
+    }
+
+    .consultation-information {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 760px) {
+    body {
+        font-size: 16px;
+    }
+
+    .container {
+        width: min(calc(100% - 28px), var(--container));
+    }
+
+    .section {
+        padding: 75px 0;
+    }
+
+    .brand {
+        min-width: 0;
+    }
+
+    .brand-mark {
+        width: 42px;
+        height: 42px;
+    }
+
+    .brand-name {
+        font-size: 0.8rem;
+    }
+
+    .brand-type {
+        display: none;
+    }
+
+    .subhero,
+    .subhero-inner {
+        min-height: 570px;
+    }
+
+    .subhero-inner {
+        padding-bottom: 65px;
+    }
+
+    .subhero h1 {
+        font-size: clamp(2.7rem, 12vw, 4.5rem);
+    }
+
+    .content-image img,
+    .attorney-overview-image img {
+        min-height: 440px;
+    }
+
+    .feature-grid,
+    .audience-grid,
+    .testimonial-page-grid,
+    .contact-methods {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: 235px;
+    }
+
+    .profile-gallery {
+        min-height: 620px;
+    }
+
+    .profile-primary {
+        width: 100%;
+        height: 555px;
+    }
+
+    .profile-secondary {
+        right: 12px;
+        width: 48%;
+        height: 240px;
+        border-width: 7px;
+    }
+
+    .practice-overview-card {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-card-image img {
+        min-height: 230px;
+        max-height: 260px;
+    }
+
+    .practice-card-content {
+        padding: 28px 25px 34px;
+    }
+
+    .consultation-form-card {
+        padding: 34px 22px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-field--full {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        display: grid;
+    }
+
+    .form-actions .button {
+        width: 100%;
+    }
+
+    .page-cta-inner {
+        display: grid;
+    }
+
+    .page-cta .button {
+        width: 100%;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-links {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        display: grid;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =========================================================
+   Updated standalone page system
+   ========================================================= */
+
+.section--dark {
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.section--dark .eyebrow,
+.section--dark .section-intro {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.page-hero {
+    position: relative;
+    min-height: 620px;
+    margin-top: var(--header-height);
+    overflow: hidden;
+    background-color: var(--charcoal);
+    background-position: center;
+    background-size: cover;
+    color: var(--white);
+}
+
+.page-hero::before {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    content: "";
+}
+
+.page-hero--contact::before {
+    background-image: url("modern-courthouse.jpg");
+}
+
+.page-hero--testimonials::before {
+    background-image: url("law-library-glass.jpg");
+}
+
+.page-hero--consultation::before {
+    background-image: url("marble-stairs.jpg");
+}
+
+.page-hero--practice::before {
+    background-image: url("courthouse-columns.jpg");
+}
+
+.page-hero--attorneys::before {
+    background-image: url("jeanette-desk.jpg");
+    background-position: center 28%;
+}
+
+.page-hero::after {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 21, 19, 0.68);
+    content: "";
+}
+
+.page-hero__inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    min-height: 620px;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.page-hero__content {
+    max-width: 850px;
+}
+
+.page-hero__kicker {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.page-hero__kicker::before {
+    width: 40px;
+    height: 2px;
+    background: currentColor;
+    content: "";
+}
+
+.page-hero h1 {
+    max-width: 900px;
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 400;
+    letter-spacing: -0.055em;
+    line-height: 1.04;
+}
+
+.page-hero__description {
+    max-width: 720px;
+    margin: 27px 0 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: clamp(1.03rem, 2vw, 1.22rem);
+}
+
+.page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 35px;
+}
+
+.button--outline {
+    border-color: rgba(255, 255, 255, 0.72);
+    background: transparent;
+    color: var(--white);
+}
+
+.button--outline:hover {
+    border-color: var(--white);
+    background: var(--white);
+    color: var(--ink);
+}
+
+/* Shared cards and structured content */
+
+.feature-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.feature-card {
+    min-height: 250px;
+}
+
+.feature-card__number,
+.expectation-card > span {
+    display: block;
+    margin-bottom: 42px;
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 0.9rem;
+}
+
+.feature-card h3,
+.expectation-card h3,
+.matter-card h3 {
+    margin: 0 0 12px;
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 400;
+}
+
+.feature-card p,
+.expectation-card p,
+.matter-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.section--dark .expectation-card p {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+.expectation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 52px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.expectation-card {
+    min-height: 275px;
+    padding: 31px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.expectation-card > span {
+    color: rgba(255, 255, 255, 0.48);
+}
+
+.matter-grid,
+.value-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 42px;
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.matter-card,
+.value-card {
+    min-height: 185px;
+    padding: 27px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.matter-card > span,
+.value-card strong {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--burgundy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.value-card span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Directory controls */
+
+.directory-panel,
+.practice-directory {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 65px;
+    padding: 42px;
+    border: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.directory-panel h2,
+.practice-directory h2 {
+    margin: 0 0 12px;
+    font-family: var(--serif);
+    font-size: clamp(1.65rem, 3vw, 2.5rem);
+    font-weight: 400;
+}
+
+.directory-panel p,
+.practice-directory p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.directory-field,
+.practice-directory > div:last-child {
+    display: grid;
+    gap: 9px;
+}
+
+.directory-field label,
+.practice-directory label {
+    color: var(--charcoal);
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.directory-field select,
+.practice-directory select {
+    width: 100%;
+    min-height: 54px;
+    padding: 12px 14px;
+    border: 1px solid #bdb8ae;
+    background: var(--white);
+    color: var(--ink);
+}
+
+/* Attorneys */
+
+.attorney-profile {
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+    gap: clamp(45px, 7vw, 90px);
+    align-items: start;
+}
+
+.attorney-portrait {
+    position: relative;
+    min-height: 760px;
+}
+
+.attorney-portrait__main {
+    width: 88%;
+    height: 675px;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.attorney-portrait__secondary {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 47%;
+    height: 315px;
+    border: 10px solid var(--paper-light);
+    object-fit: cover;
+    object-position: center top;
+}
+
+.attorney-name {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.12;
+}
+
+.attorney-title {
+    display: block;
+    margin: 13px 0 27px;
+    color: var(--burgundy);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.attorney-copy > p {
+    color: var(--muted);
+}
+
+.attorney-copy .lead {
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    line-height: 1.7;
+}
+
+.attorney-copy > .button {
+    margin-top: 28px;
+}
+
+.professional-note {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 65px;
+    padding: 48px;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.professional-note h2 {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.2vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.professional-note p {
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+/* Practice areas */
+
+.practice-section {
+    scroll-margin-top: calc(var(--header-height) + 18px);
+}
+
+.practice-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(50px, 8vw, 100px);
+}
+
+.practice-layout--reverse .practice-photo {
+    order: 2;
+}
+
+.practice-layout--reverse .practice-content {
+    order: 1;
+}
+
+.practice-photo img {
+    width: 100%;
+    height: 610px;
+    object-fit: cover;
+}
+
+.practice-content h2 {
+    margin: 0 0 20px;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1.14;
+}
+
+.practice-content > p {
+    color: var(--muted);
+}
+
+.practice-lead {
+    color: var(--ink) !important;
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    line-height: 1.65;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 26px;
+    margin: 28px 0;
+    padding-left: 20px;
+    color: var(--charcoal-soft);
+    font-size: 0.92rem;
+}
+
+.help-panel {
+    margin: 30px 0;
+    padding: 26px;
+    border-left: 4px solid var(--burgundy);
+    background: var(--paper);
+}
+
+.help-panel h3 {
+    margin: 0 0 8px;
+    font-family: var(--serif);
+    font-size: 1.1rem;
+}
+
+.help-panel p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Testimonials */
+
+.testimonial-notice {
+    margin: 28px 0 40px;
+    padding: 18px 20px;
+    border-left: 4px solid var(--burgundy);
+    background: var(--paper);
+    color: var(--muted);
+    font-size: 0.86rem;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.testimonial-card {
+    display: flex;
+    min-height: 320px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 31px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.testimonial-card:nth-child(even) {
+    background: var(--paper-light);
+}
+
+.testimonial-quote {
+    color: var(--burgundy);
+    font-family: var(--serif);
+    font-size: 3.8rem;
+    line-height: 0.8;
+}
+
+.testimonial-card blockquote {
+    margin: 18px 0 30px;
+    color: var(--charcoal-soft);
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    line-height: 1.72;
+}
+
+.testimonial-card footer strong {
+    display: block;
+    color: var(--ink);
+    font-size: 0.91rem;
+}
+
+.testimonial-card footer span {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.73rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Consultation */
+
+.consultation-layout {
+    display: grid;
+    grid-template-columns: 0.83fr 1.17fr;
+    align-items: start;
+    gap: 0;
+}
+
+.consultation-information {
+    min-height: 100%;
+    padding: 58px;
+    background: var(--charcoal);
+    color: var(--white);
+}
+
+.consultation-information .eyebrow {
+    color: #ddd8cf;
+}
+
+.consultation-information .section-title {
+    font-size: clamp(2rem, 3.5vw, 3.4rem);
+}
+
+.consultation-information > p {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.consultation-list {
+    display: grid;
+    gap: 15px;
+    margin: 33px 0;
+    padding: 0;
+    list-style: none;
+}
+
+.consultation-list li {
+    display: flex;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.91rem;
+}
+
+.consultation-list li::before {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 auto;
+    margin-top: 8px;
+    background: var(--white);
+    content: "";
+}
+
+.quote-panel {
+    margin-top: 35px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.quote-panel blockquote {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--serif);
+    font-size: 1.02rem;
+}
+
+.form-panel {
+    padding: 58px;
+    border: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.form-panel > h2 {
+    margin: 0 0 9px;
+    font-family: var(--serif);
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.form-intro {
+    margin: 0 0 30px;
+    color: var(--muted);
+    font-size: 0.91rem;
+}
+
+/* Contact */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 45px;
+    border-top: 1px solid var(--stone);
+    border-left: 1px solid var(--stone);
+}
+
+.contact-card {
+    min-height: 305px;
+    padding: 32px;
+    border-right: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+    background: var(--white);
+}
+
+.contact-card__label {
+    display: block;
+    margin-bottom: 38px;
+    color: var(--burgundy);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+}
+
+.contact-card h2 {
+    margin: 0 0 13px;
+    overflow-wrap: anywhere;
+    font-family: var(--serif);
+    font-size: 1.36rem;
+    font-weight: 400;
+}
+
+.contact-card p {
+    margin: 0 0 25px;
+    color: var(--muted);
+}
+
+.official-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.official-badge svg {
+    width: 23px;
+    height: 23px;
+}
+
+.office-panel {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    min-height: 560px;
+    border: 1px solid var(--stone);
+}
+
+.office-panel__image {
+    min-height: 560px;
+    background: url("marble-stairs.jpg") center / cover;
+}
+
+.office-panel__content {
+    align-self: center;
+    padding: 55px;
+}
+
+.office-panel__content h2 {
+    margin: 0 0 18px;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 3.4rem);
+    font-weight: 400;
+}
+
+.office-panel__content > p {
+    color: var(--muted);
+}
+
+.contact-details {
+    margin-top: 31px;
+    border-top: 1px solid var(--stone);
+}
+
+.contact-detail {
+    display: grid;
+    grid-template-columns: 125px minmax(0, 1fr);
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--stone);
+}
+
+.contact-detail span:first-child {
+    color: var(--muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* CTA variants used by updated pages */
+
+.page-cta__layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.page-cta__layout > div:first-child {
+    max-width: 780px;
+}
+
+.page-cta__actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Responsive additions */
+
+@media (max-width: 1100px) {
+    .page-hero,
+    .page-hero__inner {
+        min-height: 560px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .directory-panel,
+    .practice-directory,
+    .attorney-profile,
+    .practice-layout,
+    .consultation-layout,
+    .office-panel,
+    .professional-note {
+        grid-template-columns: 1fr;
+    }
+
+    .practice-layout--reverse .practice-photo,
+    .practice-layout--reverse .practice-content {
+        order: initial;
+    }
+
+    .attorney-profile,
+    .practice-layout {
+        gap: 60px;
+    }
+
+    .consultation-information,
+    .form-panel {
+        padding: 50px;
+    }
+
+    .office-panel__image {
+        min-height: 430px;
+    }
+
+    .page-cta__layout {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 28px;
+    }
+}
+
+@media (max-width: 760px) {
+    .page-hero,
+    .page-hero__inner {
+        min-height: calc(100svh - var(--header-height));
+    }
+
+    .page-hero__inner {
+        align-items: flex-end;
+        padding: 90px 0;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(2.75rem, 13vw, 4.5rem);
+    }
+
+    .page-hero__actions,
+    .page-cta__actions {
+        display: grid;
+        width: 100%;
+    }
+
+    .page-hero__actions .button,
+    .page-cta__actions .button {
+        width: 100%;
+    }
+
+    .feature-grid,
+    .expectation-grid,
+    .matter-grid,
+    .value-grid,
+    .testimonial-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-panel,
+    .practice-directory {
+        gap: 30px;
+        padding: 28px 22px;
+    }
+
+    .attorney-portrait {
+        min-height: 650px;
+    }
+
+    .attorney-portrait__main {
+        width: 100%;
+        height: 585px;
+    }
+
+    .attorney-portrait__secondary {
+        right: 12px;
+        width: 48%;
+        height: 260px;
+        border-width: 7px;
+    }
+
+    .practice-photo img {
+        height: 430px;
+    }
+
+    .service-list {
+        grid-template-columns: 1fr;
+    }
+
+    .consultation-information,
+    .form-panel,
+    .office-panel__content,
+    .professional-note {
+        padding: 34px 23px;
+    }
+
+    .contact-detail {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .office-panel__image {
+        min-height: 330px;
+    }
+}
+
+site-header,
+site-footer {
+    display: contents;
+}
+
+.header-cta.is-active {
+    background: var(--burgundy-dark);
+}
