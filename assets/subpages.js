@@ -208,94 +208,17 @@ if (consultationForm) {
                 return;
             }
 
-            const data = new FormData(consultationForm);
+            consultationForm.reset();
 
-            const fullName = String(
-                data.get("fullName") || ""
-            ).trim();
-
-            const email = String(
-                data.get("email") || ""
-            ).trim();
-
-            const phone = String(
-                data.get("phone") || ""
-            ).trim();
-
-            const contactMethod = String(
-                data.get("contactMethod") || ""
-            ).trim();
-
-            const service = String(
-                data.get("service") || ""
-            ).trim();
-
-            const location = String(
-                data.get("location") || ""
-            ).trim();
-
-            const preferredDateValue = String(
-                data.get("preferredDate") || ""
-            ).trim();
-
-            const preferredTime = String(
-                data.get("preferredTime") || ""
-            ).trim();
-
-            const summary = String(
-                data.get("summary") || ""
-            ).trim();
-
-            const subject =
-                "Consultation request — " +
-                service +
-                " — " +
-                fullName;
-
-            const message = [
-                "NEW CONSULTATION REQUEST",
-                "",
-                "Name: " + fullName,
-                "Email: " + email,
-                "Phone or Telegram: " +
-                    (phone || "Not provided"),
-                "Preferred contact method: " +
-                    contactMethod,
-                "Requested service: " + service,
-                "Location: " +
-                    (location || "Not provided"),
-                "Preferred date: " +
-                    (preferredDateValue || "No preference"),
-                "Preferred time: " + preferredTime,
-                "",
-                "Brief non-confidential summary:",
-                summary,
-                "",
-                "The sender acknowledged that submitting this request does not create a lawyer-client relationship."
-            ].join("\n");
-
-            const primaryEmail =
-                "barristerjeanettestevenson@gmail.com";
-
-            const alternateEmail =
-                "barristerjeanettestevensonlw@gmail.com";
-
-            const mailtoUrl =
-                "mailto:" +
-                primaryEmail +
-                "?cc=" +
-                encodeURIComponent(alternateEmail) +
-                "&subject=" +
-                encodeURIComponent(subject) +
-                "&body=" +
-                encodeURIComponent(message);
-
-            if (formStatus) {
-                formStatus.textContent =
-                    "Opening your email application…";
+            if (preferredDate) {
+                preferredDate.min = getLocalDateString(new Date());
             }
 
-            window.location.href = mailtoUrl;
+            if (formStatus) {
+                formStatus.textContent = "";
+            }
+
+            showToast("Consultation Request Successfully Submitted");
         }
     );
 }
