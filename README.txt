@@ -29,13 +29,6 @@ LEGACY SHARED FILES RETAINED FOR THE OTHER PAGES
 - assets/subpages.css
 - assets/subpages.js
 
-LEGACY GENERATOR
-- legacy/build-pages.mjs
-
-The former generator was moved into the legacy folder because running it would
-overwrite the newly supplied Attorneys, Practice Areas, Testimonials,
-Consultation and Contact pages.
-
 REQUIRED IMAGES
 Place all required JPG images inside the assets folder using the exact filenames
 listed in assets/README.txt.
@@ -44,3 +37,11 @@ OPENING THE WEBSITE
 Open index.html in a browser, or upload the entire folder to your hosting service.
 Do not upload only the HTML files; the CSS, JavaScript and assets folder are also
 required.
+
+CONSULTATION FORM BEHAVIOUR
+- Book Now does not open an email application.
+- After valid fields are completed, the form clears and a success pop-up appears.
+- Cancel closes the pop-up.
+- Go Back / Enter New Details closes it and returns focus to the form.
+- This front-end-only package does not send or store submissions on a server.
+  A backend or form service is required if the firm needs to receive the details.

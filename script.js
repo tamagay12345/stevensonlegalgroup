@@ -12,7 +12,6 @@ const hero = document.querySelector(".hero");
 const consultationForm = document.querySelector("#consultation-form");
 const formStatus = document.querySelector("#form-status");
 const preferredDate = document.querySelector("#preferred-date");
-const copyTelegramButton = document.querySelector("#copy-telegram");
 const toast = document.querySelector("#toast");
 const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -242,73 +241,159 @@ function getLocalDateString(date) {
 
 preferredDate.min = getLocalDateString(new Date());
 
+function getConsultationSuccessModal() {
+    let modal = document.querySelector("#consultation-success-modal");
+
+    if (modal) {
+        return modal;
+    }
+
+    modal = document.createElement("div");
+    modal.id = "consultation-success-modal";
+    modal.className = "success-modal";
+    modal.hidden = true;
+    modal.innerHTML = `
+        <div
+            class="success-modal__backdrop"
+            data-success-close
+            aria-hidden="true"
+        ></div>
+
+        <section
+            class="success-modal__dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="consultation-success-title"
+            aria-describedby="consultation-success-description"
+            tabindex="-1"
+        >
+            <button
+                class="success-modal__close"
+                type="button"
+                aria-label="Close confirmation"
+                data-success-close
+            >
+                ×
+            </button>
+
+            <span class="success-modal__icon" aria-hidden="true">✓</span>
+
+            <p class="success-modal__eyebrow">Consultation Request</p>
+
+            <h2 id="consultation-success-title">
+                Consultation Request Successfully Submitted
+            </h2>
+
+            <p id="consultation-success-description">
+                Your completed details have been cleared from the form. Close
+                this message or go back to enter a new consultation request.
+            </p>
+
+            <div class="success-modal__actions">
+                <button
+                    class="button button--dark"
+                    type="button"
+                    data-success-close
+                >
+                    Cancel
+                </button>
+
+                <button
+                    class="button"
+                    type="button"
+                    data-success-new-request
+                >
+                    Go Back / Enter New Details
+                </button>
+            </div>
+        </section>
+    `;
+
+    document.body.appendChild(modal);
+    return modal;
+}
+
+const successModal = getConsultationSuccessModal();
+const successDialog = successModal.querySelector(".success-modal__dialog");
+const newRequestButton = successModal.querySelector(
+    "[data-success-new-request]"
+);
+const closeSuccessButtons = successModal.querySelectorAll(
+    "[data-success-close]"
+);
+const fullNameField = consultationForm.querySelector("#full-name");
+let consultationLastFocusedElement = null;
+
+function closeConsultationSuccessModal(focusForm = false) {
+    successModal.classList.remove("is-visible");
+    document.body.classList.remove("modal-open");
+
+    window.setTimeout(() => {
+        successModal.hidden = true;
+
+        if (focusForm && fullNameField) {
+            fullNameField.focus();
+            fullNameField.scrollIntoView({
+                behavior: reducedMotion.matches ? "auto" : "smooth",
+                block: "center"
+            });
+            return;
+        }
+
+        if (consultationLastFocusedElement instanceof HTMLElement) {
+            consultationLastFocusedElement.focus();
+        }
+    }, reducedMotion.matches ? 0 : 180);
+}
+
+function openConsultationSuccessModal() {
+    consultationLastFocusedElement = document.activeElement;
+    successModal.hidden = false;
+    document.body.classList.add("modal-open");
+
+    window.requestAnimationFrame(() => {
+        successModal.classList.add("is-visible");
+
+        if (newRequestButton) {
+            newRequestButton.focus();
+        } else if (successDialog) {
+            successDialog.focus();
+        }
+    });
+}
+
+closeSuccessButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        closeConsultationSuccessModal(false);
+    });
+});
+
+if (newRequestButton) {
+    newRequestButton.addEventListener("click", () => {
+        closeConsultationSuccessModal(true);
+    });
+}
+
+successModal.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeConsultationSuccessModal(false);
+    }
+});
+
 consultationForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     formStatus.textContent = "";
 
     if (!consultationForm.checkValidity()) {
         consultationForm.reportValidity();
-        formStatus.textContent =
-            "Please complete all required fields.";
+        formStatus.textContent = "Please complete all required fields.";
         return;
     }
 
-    const data = new FormData(consultationForm);
-
-    const fullName = String(data.get("fullName") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const phone = String(data.get("phone") || "").trim();
-    const contactMethod = String(
-        data.get("contactMethod") || ""
-    ).trim();
-    const service = String(data.get("service") || "").trim();
-    const location = String(data.get("location") || "").trim();
-    const preferredDateValue = String(
-        data.get("preferredDate") || ""
-    ).trim();
-    const preferredTime = String(
-        data.get("preferredTime") || ""
-    ).trim();
-    const summary = String(data.get("summary") || "").trim();
-
-    const subject =
-        `Consultation request — ${service} — ${fullName}`;
-
-    const message = [
-        "NEW CONSULTATION REQUEST",
-        "",
-        `Name: ${fullName}`,
-        `Email: ${email}`,
-        `Phone or Telegram: ${phone || "Not provided"}`,
-        `Preferred contact method: ${contactMethod}`,
-        `Requested service: ${service}`,
-        `Location: ${location || "Not provided"}`,
-        `Preferred date: ${preferredDateValue || "No preference"}`,
-        `Preferred time: ${preferredTime}`,
-        "",
-        "Brief non-confidential summary:",
-        summary,
-        "",
-        "The sender acknowledged that submitting this request does not create a lawyer-client relationship."
-    ].join("\n");
-
-    const primaryEmail =
-        "barristerjeanettestevenson@gmail.com";
-
-    const alternateEmail =
-        "barristerjeanettestevensonlw@gmail.com";
-
-    const mailtoUrl =
-        `mailto:${primaryEmail}` +
-        `?cc=${encodeURIComponent(alternateEmail)}` +
-        `&subject=${encodeURIComponent(subject)}` +
-        `&body=${encodeURIComponent(message)}`;
-
-    formStatus.textContent =
-        "Opening your email application…";
-
-    window.location.href = mailtoUrl;
+    consultationForm.reset();
+    preferredDate.min = getLocalDateString(new Date());
+    formStatus.textContent = "";
+    openConsultationSuccessModal();
 });
 
 function showToast(message) {
@@ -323,35 +408,6 @@ function showToast(message) {
         toast.classList.remove("is-visible");
     }, 3200);
 }
-
-copyTelegramButton.addEventListener("click", async () => {
-    const number = copyTelegramButton.dataset.number;
-
-    try {
-        await navigator.clipboard.writeText(number);
-        showToast("Telegram number copied: " + number);
-    } catch (error) {
-        const temporaryInput = document.createElement("input");
-
-        temporaryInput.value = number;
-        temporaryInput.setAttribute("readonly", "");
-        temporaryInput.style.position = "fixed";
-        temporaryInput.style.opacity = "0";
-
-        document.body.appendChild(temporaryInput);
-        temporaryInput.select();
-
-        const copied = document.execCommand("copy");
-
-        temporaryInput.remove();
-
-        showToast(
-            copied
-                ? "Telegram number copied: " + number
-                : "Telegram number: " + number
-        );
-    }
-});
 
 document.querySelector("#current-year").textContent =
     String(new Date().getFullYear());
