@@ -12,7 +12,6 @@ const hero = document.querySelector(".hero");
 const consultationForm = document.querySelector("#consultation-form");
 const formStatus = document.querySelector("#form-status");
 const preferredDate = document.querySelector("#preferred-date");
-const copyTelegramButton = document.querySelector("#copy-telegram");
 const toast = document.querySelector("#toast");
 const reducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -280,7 +279,7 @@ consultationForm.addEventListener("submit", (event) => {
         "",
         `Name: ${fullName}`,
         `Email: ${email}`,
-        `Phone or Telegram: ${phone || "Not provided"}`,
+        `Phone: ${phone || "Not provided"}`,
         `Preferred contact method: ${contactMethod}`,
         `Requested service: ${service}`,
         `Location: ${location || "Not provided"}`,
@@ -323,35 +322,6 @@ function showToast(message) {
         toast.classList.remove("is-visible");
     }, 3200);
 }
-
-copyTelegramButton.addEventListener("click", async () => {
-    const number = copyTelegramButton.dataset.number;
-
-    try {
-        await navigator.clipboard.writeText(number);
-        showToast("Telegram number copied: " + number);
-    } catch (error) {
-        const temporaryInput = document.createElement("input");
-
-        temporaryInput.value = number;
-        temporaryInput.setAttribute("readonly", "");
-        temporaryInput.style.position = "fixed";
-        temporaryInput.style.opacity = "0";
-
-        document.body.appendChild(temporaryInput);
-        temporaryInput.select();
-
-        const copied = document.execCommand("copy");
-
-        temporaryInput.remove();
-
-        showToast(
-            copied
-                ? "Telegram number copied: " + number
-                : "Telegram number: " + number
-        );
-    }
-});
 
 document.querySelector("#current-year").textContent =
     String(new Date().getFullYear());
