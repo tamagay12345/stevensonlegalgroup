@@ -1,0 +1,13 @@
+DEPLOYMENT VERSION: FINAL-V2-20260720
+
+1. Delete or replace the old files in your GitHub/Vercel project.
+2. Upload ALL files and folders from this ZIP, including assets and vercel.json.
+3. Confirm consultation.html references assets/pages-final-v2.js.
+4. Commit and wait for the new Vercel deployment to finish.
+5. Open the newest deployment, then press Ctrl+Shift+R once.
+
+Verification:
+View page source on consultation.html and search for:
+CONSULTATION POPUP VERSION: FINAL-V2-20260720
+
+The Book Now button does not use mailto, does not open an email application, clears the form, and opens the success modal.
