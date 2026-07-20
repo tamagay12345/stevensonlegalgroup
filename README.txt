@@ -45,3 +45,7 @@ CONSULTATION FORM BEHAVIOUR
 - Go Back / Enter New Details closes it and returns focus to the form.
 - This front-end-only package does not send or store submissions on a server.
   A backend or form service is required if the firm needs to receive the details.
+
+GOOGLE SHEET CONSULTATION INTEGRATION
+-------------------------------------
+The Book Now forms on consultation.html and index.html submit consultation details to the configured Google Apps Script Web App. The Apps Script stores each submission in the Google Sheet tab named Consultation. After the request is sent, the form clears and the success pop-up appears.

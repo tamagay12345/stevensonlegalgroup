@@ -1,34 +1,18 @@
-DEPLOYMENT VERSION: FINAL-V4-GOOGLE-SHEETS-20260720
+DEPLOYMENT VERSION: GOOGLE-SHEET-V1-20260720
 
-BEFORE DEPLOYING THE WEBSITE
-1. Follow GOOGLE-SHEETS-SETUP.txt.
-2. Deploy google-apps-script/Code.gs from your Google Sheet as a Web App.
-3. The Web App URL is already saved in assets/google-sheet-config-final-v5.js.
-
-DEPLOY THE WEBSITE
 1. Delete or replace the old files in your GitHub/Vercel project.
 2. Upload ALL files and folders from this ZIP, including assets and vercel.json.
-3. Confirm consultation.html references:
-   - assets/google-sheet-config-final-v5.js
-   - assets/pages-final-v4.js
-4. Confirm index.html references:
-   - assets/google-sheet-config-final-v5.js
-   - script-final-v4.js
-5. Commit and wait for the Vercel deployment to finish.
-6. Open the newest deployment and press Ctrl + Shift + R once.
+3. Confirm consultation.html references assets/pages-google-sheet-v1.js.
+4. Confirm index.html references script-google-sheet-v1.js.
+5. Commit and wait for the new Vercel deployment to finish.
+6. Open the newest deployment, then press Ctrl+Shift+R once.
 
-EXPECTED BOOK NOW BEHAVIOUR
-- Valid details are submitted to the Google Sheet.
-- While sending, the button displays Submitting…
-- The success pop-up appears only after the submission response loads.
-- The form clears after submission.
-- Cancel closes the pop-up.
-- Go Back / Enter New Details returns the visitor to the fresh form.
-- No email application opens.
+Google Sheet integration:
+- Submissions are sent to the provided Google Apps Script Web App.
+- The Apps Script saves them to the sheet tab named Consultation.
+- The form is cleared only after the browser sends the request.
+- The success modal then opens with Cancel and Go Back / Enter New Details.
 
-GOOGLE SHEET LOCATION
-Submitted entries appear in the sheet tab named: Consultation Requests
-
-
-Google Sheets endpoint status: CONFIGURED
-Web App URL: https://script.google.com/macros/s/AKfycbxsbbrriCEtcShbrTUND7I66TJjsuqLZHUIw7ayia05tfmn0adhMgShMNNwBYFulEJsHQ/exec
+Verification:
+Open consultation.html page source and search for pages-google-sheet-v1.js.
+Open index.html page source and search for script-google-sheet-v1.js.
