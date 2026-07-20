@@ -11,3 +11,5 @@ View page source on consultation.html and search for:
 CONSULTATION POPUP VERSION: FINAL-V2-20260720
 
 The Book Now button does not use mailto, does not open an email application, clears the form, and opens the success modal.
+
+Testimonials update: replaced the draft notice and removed all draft sample labels.
