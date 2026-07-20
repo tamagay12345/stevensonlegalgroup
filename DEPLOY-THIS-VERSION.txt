@@ -1,15 +1,34 @@
-DEPLOYMENT VERSION: FINAL-V2-20260720
+DEPLOYMENT VERSION: FINAL-V4-GOOGLE-SHEETS-20260720
 
+BEFORE DEPLOYING THE WEBSITE
+1. Follow GOOGLE-SHEETS-SETUP.txt.
+2. Deploy google-apps-script/Code.gs from your Google Sheet as a Web App.
+3. The Web App URL is already saved in assets/google-sheet-config-final-v5.js.
+
+DEPLOY THE WEBSITE
 1. Delete or replace the old files in your GitHub/Vercel project.
 2. Upload ALL files and folders from this ZIP, including assets and vercel.json.
-3. Confirm consultation.html references assets/pages-final-v2.js.
-4. Commit and wait for the new Vercel deployment to finish.
-5. Open the newest deployment, then press Ctrl+Shift+R once.
+3. Confirm consultation.html references:
+   - assets/google-sheet-config-final-v5.js
+   - assets/pages-final-v4.js
+4. Confirm index.html references:
+   - assets/google-sheet-config-final-v5.js
+   - script-final-v4.js
+5. Commit and wait for the Vercel deployment to finish.
+6. Open the newest deployment and press Ctrl + Shift + R once.
 
-Verification:
-View page source on consultation.html and search for:
-CONSULTATION POPUP VERSION: FINAL-V2-20260720
+EXPECTED BOOK NOW BEHAVIOUR
+- Valid details are submitted to the Google Sheet.
+- While sending, the button displays Submitting…
+- The success pop-up appears only after the submission response loads.
+- The form clears after submission.
+- Cancel closes the pop-up.
+- Go Back / Enter New Details returns the visitor to the fresh form.
+- No email application opens.
 
-The Book Now button does not use mailto, does not open an email application, clears the form, and opens the success modal.
+GOOGLE SHEET LOCATION
+Submitted entries appear in the sheet tab named: Consultation Requests
 
-Testimonials update: replaced the draft notice and removed all draft sample labels.
+
+Google Sheets endpoint status: CONFIGURED
+Web App URL: https://script.google.com/macros/s/AKfycbxsbbrriCEtcShbrTUND7I66TJjsuqLZHUIw7ayia05tfmn0adhMgShMNNwBYFulEJsHQ/exec
